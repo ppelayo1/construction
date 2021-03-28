@@ -12,6 +12,7 @@ Version: 0.0.1
 header {
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
 }
 header nav {
   height: 2.625rem;
@@ -30,7 +31,7 @@ header nav #headerHamburger {
 }
 header #homeHeroHeader {
   height: calc(100% - 2.625rem);
-  width: 100vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -40,31 +41,43 @@ header #homeHeroHeader img {
   object-fit: cover;
 }
 
-.contentBox {
-  margin-top: 5.75rem;
-  margin-bottom: 5.75rem;
+.serviceBox {
+  margin-top: 5rem;
 }
-.contentBox section {
-  max-width: 793px;
-}
-.contentBox section h1 {
+.serviceBox h1 {
   font-weight: bold;
   text-align: center;
 }
-.contentBox section #servicesRow {
+.serviceBox #servicesRow {
   margin-top: 1.875rem;
+  max-width: 341px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.contentBox section #servicesRow h2 {
+.serviceBox #servicesRow .service h2 {
   font-weight: bold;
   font-size: 1.667rem;
   text-align: center;
 }
-.contentBox section #servicesRow p {
-  margin-top: 0.321rem;
-  margin-left: 1rem;
-  margin-right: 0.4rem;
+.serviceBox #servicesRow .service:nth-child(n+2) {
+  margin-top: 1rem;
 }
 
+@media screen and (min-width: 992px) {
+  .serviceBox {
+    max-width: 53rem;
+  }
+  .serviceBox #servicesRow {
+    max-width: inherit;
+  }
+  .serviceBox #servicesRow .service p {
+    margin-top: 0.321rem;
+    margin-left: 1.9rem;
+  }
+  .serviceBox #servicesRow .service:nth-child(n+2) {
+    margin-top: 0;
+  }
+}
 #mobileMenu {
   background: black;
   position: fixed;
