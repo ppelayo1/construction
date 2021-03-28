@@ -39,4 +39,71 @@ function register_my_menus() {
    );
  }
  add_action( 'init', 'register_my_menus' );
+
+function themeslug_customize_register( $wp_customize ) {
+    // Do stuff with $wp_customize, the WP_Customize_Manager object.
+    $wp_customize->add_section( 'header_color' , array(
+      'title' => 'Header Color',
+      'priority' => 41, // After Colors.
+    ) );
     
+    $wp_customize->add_setting( 'header_background_color',array(
+    'default' => '#000000'));
+    
+    $wp_customize->add_control( 'header_background_color', array(
+      'type' => 'color',
+      'section' => 'header_color', // Required, core or custom.
+      'description' => 'Color for the Header Background',
+    ) );
+    
+    // Do stuff with $wp_customize, the WP_Customize_Manager object.
+    $wp_customize->add_setting( 'hamburger_color',array(
+    'default' => '#ffffff'));
+    
+    $wp_customize->add_control( 'hamburger_color', array(
+      'type' => 'color',
+      'section' => 'header_color', // Required, core or custom.
+      'description' => 'Color for the Hamburger Icon',
+    ) );
+    
+    $wp_customize->selective_refresh->add_partial( 'header_background_color', array(
+        'selector' => 'nav') );
+    $wp_customize->selective_refresh->add_partial( 'hamburger_color', array(
+        'selector' => '#headerHamburger') );
+    $wp_customize->selective_refresh->add_partial( 'header_image', array(
+        'selector' => '#homeHeroHeader') );
+}
+add_action( 'customize_register', 'themeslug_customize_register' );
+add_action( 'after_setup_theme', function () {
+    add_theme_support( 'custom-header', array( 'header-text' => false ) );
+} );
+
+//css to add to header for the customizer
+function my_customizer_css(){
+    $colorHeader = get_theme_mod('header_background_color');
+    $colorHamburger = get_theme_mod('hamburger_color');
+    
+    $css = "<style type='text/css' id='my_customizer'>
+                nav{
+                    background:{$colorHeader};
+                }
+                
+                nav .customize-partial-edit-shortcut-custom_logo{
+                    left:2rem;
+                }
+                
+                nav .customize-partial-edit-shortcut-header_background_color{
+                    right:50%;
+                }
+                
+                nav #headerHamburger{
+                    color:{$colorHamburger}
+                }
+                
+                header .customize-partial-edit-shortcut-header_image{
+                    top:3.5rem;
+                    left:2.1rem;     
+                }
+            </style>";
+    echo $css;
+}add_action( 'wp_head', 'my_customizer_css');

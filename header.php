@@ -16,27 +16,18 @@
     </div>
     
     <header>
-        <?php 
-            //custom field for the nav header background color
-            $backgroundColor = get_field('header_background_color');
-             echo "<nav style='background:{$backgroundColor}'>"; 
-        ?>
+        
+            <nav class='navBar'>
+        
             <?php
             //lets user enter a custom header image
                 if ( function_exists( 'the_custom_logo' ) ) {
                         the_custom_logo();
                     }
-            ?>
-        
-            <?php 
-                //custom field for the hamburger color
-                $hamburgerColor = get_field('hamburger_color');
-                 echo "<i id='headerHamburger' style='color:{$hamburgerColor}' class='fa fa-bars'></i>"; 
-            ?>
-        
-            
-            
-        </nav>  
+            ?>  
+                
+            <i id='headerHamburger' class='fa fa-bars'></i>"
+            </nav>  
             
 
     
