@@ -43,27 +43,30 @@ header #homeHeroHeader img {
 
 .serviceBox {
   margin-top: 5rem;
+  max-width: 21.313rem;
 }
 .serviceBox h1 {
   font-weight: bold;
   text-align: center;
 }
-.serviceBox #servicesRow {
-  margin-top: 1.875rem;
-  max-width: 341px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.serviceBox #servicesRow .service h2 {
+.serviceBox h2 {
   font-weight: bold;
   font-size: 1.667rem;
   text-align: center;
 }
+.serviceBox .myRow {
+  margin-top: 1.875rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 .serviceBox #servicesRow .service:nth-child(n+2) {
   margin-top: 1rem;
 }
+.serviceBox #storyRow #famBusCol {
+  text-align: justify;
+}
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .serviceBox {
     max-width: 53rem;
   }
@@ -77,6 +80,12 @@ header #homeHeroHeader img {
   .serviceBox #servicesRow .service:nth-child(n+2) {
     margin-top: 0;
   }
+  .serviceBox #storyRow {
+    margin-left: 1.9rem;
+  }
+  .serviceBox #storyRow h2 {
+    text-align: left;
+  }
 }
 #mobileMenu {
   background: black;
@@ -86,6 +95,7 @@ header #homeHeroHeader img {
   display: none;
   height: 100vh;
   top: 2.625rem;
+  z-index: 1;
 }
 #mobileMenu li {
   list-style: none;

@@ -8,6 +8,10 @@ Version: 0.0.1
 *{
     font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
+
+//section font sizes
+$h1font:1.667rem;
+
 header{
     height:100vh;
     width:100vw;
@@ -50,40 +54,47 @@ header{
     
 .serviceBox{
     margin-top:5rem;
+    max-width: 21.313rem;
     
     h1{
         font-weight: bold;
         text-align:center;
     }
-
-    #servicesRow{
-        margin-top:1.875rem;
-        max-width: 341px;
+    
+    h2{
+        font-weight:bold;
+        font-size:$h1font;
+        text-align:center;
+    }   
+    .myRow{
+        margin-top:1.875rem;   
         margin-left: auto;
         margin-right: auto;
+    }
 
+    #servicesRow{
         .service{
             
-            h2{
-                font-weight:bold;
-                font-size:1.667rem;
-                text-align:center;
-            }
+            
         }
 
         .service:nth-child(n+2){
             margin-top:1rem;
         }
     }
+    
+    #storyRow{
+        
+        #famBusCol{
+            text-align: justify;
+        }
+    }
 }
 
-
-@media screen and (min-width:992px){
-    
-        
+@media screen and (min-width:768px){
     .serviceBox{
         max-width:53rem;
-
+        
         #servicesRow{
             max-width:inherit;
 
@@ -91,15 +102,20 @@ header{
                 p{
                     margin-top:0.321rem;
                     margin-left: 1.9rem;
-                    
                 }
             }
             .service:nth-child(n+2){
                 margin-top:0;
             }
         }
+        #storyRow{
+            margin-left:1.9rem;
+        
+            h2{
+                text-align:left;
+            }
+        }
     }
-
 }
 
 
@@ -114,6 +130,8 @@ header{
             display:none;
             height:100vh;
             top:2.625rem;
+            z-index:1;
+    
             li{
                 list-style: none;
                 margin-top:0.75rem;
